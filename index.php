@@ -19,6 +19,7 @@ require __DIR__ . '/web/load_fonts.php';
   <body>
     <div class="page">
       <div class="layout">
+        <div class="sidebar-column">
         <section class="panel sidebar">
           <div class="mobile-only">
             <label for="fontSelect">Font</label>
@@ -27,7 +28,7 @@ require __DIR__ . '/web/load_fonts.php';
           <div class="desktop-only">
             <div class="font-sections">
               <div class="quick-group">
-                <div class="quick-title">Core Collection</div>
+                <div class="quick-title"><span class="quick-star">&#9733;</span> Core Collection</div>
                 <div class="font-list" id="fontListCore"></div>
               </div>
               <details class="quick-group" id="extraFonts">
@@ -89,6 +90,13 @@ require __DIR__ . '/web/load_fonts.php';
             </div>
           </div>
         </section>
+        <div class="sidebar-notice">
+          <a href="https://openfontlicense.org" target="_blank" rel="noreferrer">
+            <img src="assets/ofl.svg" alt="Open Font License" />
+          </a>
+          <p>The majority of the fonts included in the collection are licensed under the OFL. <a href="https://github.com/nicoverbruggen/ebook-fonts?tab=readme-ov-file#how-are-these-fonts-licensed" target="_blank" rel="noreferrer">Learn more</a>.</p>
+        </div>
+        </div>
 
         <section class="preview">
           <div class="reader is-bezel-dark">

@@ -83,6 +83,8 @@ label {
 label .value {
   float: right;
   font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: none;
   color: var(--muted);
 }
 
@@ -94,7 +96,7 @@ input[type="range"] {
   padding: 6px 10px;
   background: var(--surface);
   color: var(--ink);
-  accent-color: var(--accent);
+  accent-color: #999;
 }
 
 select {
@@ -107,11 +109,16 @@ select {
   color: var(--ink);
 }
 
+.sidebar-column {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-self: center;
 }
 
 .sidebar-controls {
@@ -120,6 +127,12 @@ select {
   gap: 10px;
   border-top: 1px solid var(--border);
   padding-top: 16px;
+}
+
+.sidebar-controls label {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
 .sidebar-controls > div {
@@ -168,7 +181,7 @@ select {
   justify-content: space-between;
   gap: 6px;
   width: 170px;
-  padding: 9px 6px;
+  padding: 15px 6px;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface);
@@ -195,8 +208,9 @@ select {
   width: calc(50% - 8px);
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .toggle-input:not(:checked) + .toggle-track .toggle-option--left {
@@ -209,6 +223,48 @@ select {
 
 .toggle-input:checked + .toggle-track .toggle-thumb {
   transform: translateX(100%);
+}
+
+/* Screen toggle: Light = white thumb, Dark = black thumb */
+#darkModeToggle + .toggle-track .toggle-thumb {
+  background: var(--screen-bg);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+#darkModeToggle:not(:checked) + .toggle-track .toggle-option--left {
+  color: var(--ink);
+}
+
+#darkModeToggle:checked + .toggle-track .toggle-thumb {
+  background: var(--screen-bg-dark);
+  border-color: #333;
+  box-shadow: none;
+}
+
+#darkModeToggle:checked + .toggle-track .toggle-option--right {
+  color: #fff;
+}
+
+/* Bezel toggle: Black = dark thumb, White = white thumb */
+#bezelToggle + .toggle-track .toggle-thumb {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  box-shadow: none;
+}
+
+#bezelToggle:not(:checked) + .toggle-track .toggle-option--left {
+  color: #fff;
+}
+
+#bezelToggle:checked + .toggle-track .toggle-thumb {
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+#bezelToggle:checked + .toggle-track .toggle-option--right {
+  color: var(--ink);
 }
 
 
@@ -229,14 +285,18 @@ select {
   font-size: 0.95rem;
 }
 
+.device-footer p:first-of-type {
+  color: #333;
+}
+
 .device-footer a {
-  color: var(--accent);
+  color: #4672ad;
   text-decoration: none;
   font-weight: 600;
 }
 
 .device-footer a:hover {
-  color: var(--cta-hover);
+  color: #35567f;
 }
 
 .attribution {
@@ -250,6 +310,36 @@ select {
   gap: 10px;
   flex-wrap: wrap;
   padding-top: 16px;
+}
+
+.sidebar-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px 0;
+  margin-top: 15px;
+}
+
+.sidebar-notice img {
+  flex-shrink: 0;
+  margin-top: 2px;
+  border-radius: 2px;
+}
+
+.sidebar-notice p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.sidebar-notice a {
+  color: #336699;
+  text-decoration: none;
+}
+
+.sidebar-notice a:hover {
+  color: #264d73;
 }
 
 .button {
@@ -461,6 +551,17 @@ select {
   margin-bottom: 8px;
   padding-bottom: 6px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quick-star {
+  display: inline-block;
+  width: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--muted);
 }
 
 summary.quick-title {
@@ -482,9 +583,14 @@ details .quick-title::after {
   content: "Show";
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  color: var(--muted);
+  color: var(--border);
   text-transform: uppercase;
   margin-left: auto;
+  transition: color 0.15s ease;
+}
+
+details .quick-title:hover::after {
+  color: var(--muted);
 }
 
 details .quick-title::before {
@@ -566,10 +672,12 @@ details[open] .quick-title {
   background: #fff;
   color: var(--ink);
   cursor: pointer;
+  transition: background 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .font-card:hover {
-  border-color: var(--accent);
+  border-color: var(--accent-soft);
+  background: var(--accent-soft);
 }
 
 .font-card.is-active {
