@@ -62,6 +62,8 @@ if ($fontFilesJson === false) {
         --shadow: 0 18px 40px rgba(29, 18, 10, 0.12);
         --screen-width: 632px;
         --screen-height: 840px;
+        --screen-bg: #f4efe6;
+        --screen-bg-dark: #1d1a17;
       }
 
       * {
@@ -106,7 +108,7 @@ if ($fontFilesJson === false) {
         display: grid;
         grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
         gap: 28px;
-        align-items: start;
+        align-items: center;
       }
 
       .panel {
@@ -153,6 +155,7 @@ if ($fontFilesJson === false) {
         display: flex;
         flex-direction: column;
         gap: 12px;
+        align-self: center;
       }
 
       .sidebar-controls {
@@ -270,6 +273,16 @@ if ($fontFilesJson === false) {
         font-size: 0.95rem;
       }
 
+      .device-footer a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .device-footer a:hover {
+        color: var(--cta-hover);
+      }
+
       .sidebar-actions {
         display: flex;
         justify-content: center;
@@ -317,6 +330,13 @@ if ($fontFilesJson === false) {
         padding: 0;
       }
 
+      @media (min-width: 1051px) {
+        .preview {
+          min-height: calc(100vh - 68px);
+          justify-content: center;
+        }
+      }
+
       .reader {
         align-self: center;
         width: min(100%, calc(var(--screen-width) + 56px));
@@ -336,7 +356,7 @@ if ($fontFilesJson === false) {
       }
 
       .reader-screen {
-        background: #f4efe6;
+        background: var(--screen-bg);
         border-radius: 0;
         padding: 22px;
         width: 100%;
@@ -350,7 +370,7 @@ if ($fontFilesJson === false) {
       }
 
       .reader.is-dark .reader-screen {
-        background: #1d1a17;
+        background: var(--screen-bg-dark);
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
       }
 
@@ -369,15 +389,28 @@ if ($fontFilesJson === false) {
 
       .reader-toolbar {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         font-size: 0.85rem;
         color: #6b6158;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
       }
 
-      .reader-title {
+      .reader-meta {
         font-weight: 600;
         letter-spacing: 0.03em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .reader-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 999px;
+        background: currentColor;
+        opacity: 0.7;
       }
 
       .sample {
@@ -389,10 +422,27 @@ if ($fontFilesJson === false) {
         overflow: hidden;
         word-break: break-word;
         overflow-wrap: anywhere;
+        position: relative;
+      }
+
+      .sample::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 56px;
+        background: linear-gradient(to bottom, rgba(244, 239, 230, 0), rgba(244, 239, 230, 1));
+        pointer-events: none;
+      }
+
+      .reader.is-dark .sample::after {
+        background: linear-gradient(to bottom, rgba(29, 26, 23, 0), rgba(29, 26, 23, 1));
       }
 
       .chapter-title {
-        margin: 0 0 0.6em;
+        margin: 0 0 2em;
+        padding-top: 0.5em;
         text-align: center;
         font-size: 1.4em;
         letter-spacing: 0.1em;
@@ -411,12 +461,14 @@ if ($fontFilesJson === false) {
 
       .reader-footer {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         font-size: 0.8rem;
         color: #8a7f74;
         padding-top: 4px;
         margin-top: auto;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
       }
 
       .font-list {
@@ -509,9 +561,13 @@ if ($fontFilesJson === false) {
       }
 
       .font-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
         border-radius: 14px;
         border: 1px solid var(--border);
-        padding: 10px;
+        padding: 4px 8px;
         background: #fff;
         cursor: pointer;
       }
@@ -522,13 +578,23 @@ if ($fontFilesJson === false) {
 
       .font-card.is-active {
         border-color: var(--accent);
+        background: var(--accent);
+        color: #fff;
         box-shadow: inset 0 0 0 1px var(--accent);
       }
 
       .font-card p {
         margin: 0;
         font-size: 1.02rem;
-        line-height: 1.25;
+        line-height: 1;
+      }
+
+      .font-card.is-ninepoint p {
+        transform: translateY(1px);
+      }
+
+      .font-card.is-charis p {
+        transform: translateY(-1px);
       }
 
       @media (max-width: 1050px) {
@@ -539,6 +605,7 @@ if ($fontFilesJson === false) {
 
         .layout {
           grid-template-columns: 1fr;
+          align-items: start;
         }
 
         .reader {
@@ -666,17 +733,23 @@ if ($fontFilesJson === false) {
           <div class="reader">
             <div class="reader-screen">
               <div class="reader-toolbar">
-                <span class="reader-title">Pride and Prejudice</span>
-                <span id="readerClock">9:00</span>
+                <span class="reader-meta">
+                  <span id="readerChapter">Chapter 1</span>
+                  <span class="reader-dot" aria-hidden="true"></span>
+                  <span id="readerChapterProgress">1 OF 17</span>
+                </span>
               </div>
               <div class="sample" id="sampleArea"></div>
               <div class="reader-footer">
-                <span id="readerPage">Page 1</span>
-                <span id="readerProgress">1%</span>
+                <span class="reader-meta">
+                  <span id="readerBook">Pride and Prejudice</span>
+                  <span class="reader-dot" aria-hidden="true"></span>
+                  <span id="readerBookProgress">1 OF 256</span>
+                </span>
               </div>
             </div>
           </div>
-          <div class="device-footer">This curated collection of fonts is available on GitHub.</div>
+          <div class="device-footer">Made with &hearts; for digital reading by <a href="https://nicoverbruggen.be" target="_blank" rel="noreferrer">Nico Verbruggen</a>.</div>
         </section>
       </div>
     </div>
@@ -692,9 +765,10 @@ if ($fontFilesJson === false) {
       const darkModeToggle = document.getElementById("darkModeToggle");
       const bezelToggle = document.getElementById("bezelToggle");
       const reader = document.querySelector(".reader");
-      const readerClock = document.getElementById("readerClock");
-      const readerPage = document.getElementById("readerPage");
-      const readerProgress = document.getElementById("readerProgress");
+      const readerChapter = document.getElementById("readerChapter");
+      const readerChapterProgress = document.getElementById("readerChapterProgress");
+      const readerBook = document.getElementById("readerBook");
+      const readerBookProgress = document.getElementById("readerBookProgress");
 
       const fonts = new Map();
       const sampleText = `Chapter 1
@@ -816,6 +890,12 @@ This was invitation enough.
           const card = document.createElement("button");
           card.type = "button";
           card.className = "font-card";
+          if (font.family === "NV NinePoint") {
+            card.classList.add("is-ninepoint");
+          }
+          if (font.family === "NV Charis") {
+            card.classList.add("is-charis");
+          }
           card.style.fontFamily = `"${font.family}", serif`;
           card.innerHTML = `<p>${font.family}</p>`;
           card.addEventListener("click", () => {
@@ -878,13 +958,11 @@ This was invitation enough.
 
         sampleArea.innerHTML = rendered;
 
-        const now = new Date();
-        readerClock.textContent = now.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit"
-        });
-        readerPage.textContent = "Page 1";
-        readerProgress.textContent = "1%";
+
+        readerChapter.textContent = "Chapter 1";
+        readerChapterProgress.textContent = "1 OF 17";
+        readerBook.textContent = "Pride and Prejudice";
+        readerBookProgress.textContent = "1 OF 256";
       }
 
       function setupInteractions() {
@@ -898,6 +976,7 @@ This was invitation enough.
         bezelToggle.addEventListener("change", (event) => {
           reader.classList.toggle("is-bezel-dark", event.target.checked);
         });
+        window.addEventListener("resize", renderPreview);
       }
 
       function syncToggles() {
@@ -909,6 +988,9 @@ This was invitation enough.
       buildFontFaces();
       updateFontList("");
       setupInteractions();
+      if (window.matchMedia("(min-width: 1051px)").matches) {
+        sizeRange.value = "22";
+      }
       syncToggles();
       if (extraFonts) {
         extraFonts.open = window.matchMedia("(max-width: 1050px)").matches;
@@ -917,13 +999,6 @@ This was invitation enough.
       if (fontSelect.value !== activeFamily) {
         fontSelect.value = activeFamily;
       }
-      setInterval(() => {
-        const now = new Date();
-        readerClock.textContent = now.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit"
-        });
-      }, 60000);
     </script>
   </body>
 </html>
