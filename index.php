@@ -387,6 +387,29 @@ if ($fontFilesJson === false) {
           display: block;
         }
       }
+
+      @media (max-width: 640px) {
+        :root {
+          --screen-width: 320px;
+          --screen-height: 520px;
+        }
+
+        .page {
+          padding-top: 20px;
+        }
+
+        .reader {
+          width: min(100%, 360px);
+          padding: 20px 16px 28px;
+          border-radius: 14px;
+        }
+
+        .reader-screen {
+          padding: 16px;
+          min-height: 520px;
+          height: 520px;
+        }
+      }
     </style>
   </head>
   <body>
