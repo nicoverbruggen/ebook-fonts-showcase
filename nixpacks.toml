@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["php85"]
+nixPkgs = ["php84"]
 cmds = ["git clone --branch v3.x --depth 1 https://github.com/nicoverbruggen/ebook-fonts.git ./repos/ebook-fonts"]
 
 [start]
