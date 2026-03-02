@@ -28,11 +28,12 @@ require __DIR__ . '/web/load_fonts.php';
           <div class="desktop-only">
             <div class="font-sections">
               <div class="quick-group">
-                <div class="quick-title"><span class="quick-star">&#9733;</span> Core Collection</div>
+                <div class="quick-title"><span class="quick-star">&#9733;</span> Choose a font</div>
+                <p class="quick-disclaimer">This selection has been carefully curated, but there's more options available below, if you want.</p>
                 <div class="font-list" id="fontListCore"></div>
               </div>
               <details class="quick-group" id="extraFonts">
-                <summary class="quick-title">Extra Collection</summary>
+                <summary class="quick-title">Additional fonts</summary>
                 <div class="font-list" id="fontListExtra"></div>
               </details>
             </div>
@@ -48,7 +49,7 @@ require __DIR__ . '/web/load_fonts.php';
             </div>
             <div class="control-group">
               <div class="toggle-row">
-                <span class="toggle-label">Screen</span>
+                <span class="toggle-label"><svg class="toggle-icon screen-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg><svg class="toggle-icon screen-icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 6a8 8 0 0 0 11.955 6.956C21.474 18.03 17.2 22 12 22 6.477 22 2 17.523 2 12c0-5.2 3.97-9.474 9.044-9.955A7.963 7.963 0 0 0 10 6zm-6 6a8 8 0 0 0 8 8 8.006 8.006 0 0 0 6.957-4.045c-.316.03-.636.045-.957.045-5.523 0-10-4.477-10-10 0-.321.015-.641.045-.957A8.006 8.006 0 0 0 4 12z"/></svg> Screen</span>
                 <div class="toggle-group">
                   <input id="darkModeToggle" class="toggle-input" type="checkbox" />
                   <label for="darkModeToggle" class="toggle-track" aria-label="Screen mode">
@@ -61,12 +62,25 @@ require __DIR__ . '/web/load_fonts.php';
             </div>
             <div class="control-group">
               <div class="toggle-row">
-                <span class="toggle-label">Bezel</span>
+                <span class="toggle-label"><svg class="toggle-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h16V4H4zm2 2h12v12H6V6z"/></svg> Bezel</span>
                 <div class="toggle-group">
                   <input id="bezelToggle" class="toggle-input" type="checkbox" />
                   <label for="bezelToggle" class="toggle-track" aria-label="Bezel color">
                     <span class="toggle-option toggle-option--left">Black</span>
                     <span class="toggle-option toggle-option--right">White</span>
+                    <span class="toggle-thumb"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="control-group hidden">
+              <div class="toggle-row">
+                <span class="toggle-label"><span class="toggle-icon toggle-icon--text" aria-hidden="true">fi</span> Ligatures</span>
+                <div class="toggle-group">
+                  <input id="ligaturesToggle" class="toggle-input" type="checkbox" />
+                  <label for="ligaturesToggle" class="toggle-track" aria-label="Ligatures">
+                    <span class="toggle-option toggle-option--left">On</span>
+                    <span class="toggle-option toggle-option--right">Off</span>
                     <span class="toggle-thumb"></span>
                   </label>
                 </div>
@@ -105,7 +119,7 @@ require __DIR__ . '/web/load_fonts.php';
                 <span class="reader-meta">
                   <span>Prologue</span>
                   <span class="reader-dot" aria-hidden="true"></span>
-                  <span>1 OF 58</span>
+                  <span>1 OF 18</span>
                 </span>
               </div>
               <div class="sample" id="sampleArea"></div>
@@ -119,7 +133,7 @@ require __DIR__ . '/web/load_fonts.php';
             </div>
           </div>
           <div class="device-footer">
-              <p>Made with &hearts; for digital reading by <a href="https://nicoverbruggen.be" target="_blank" rel="noreferrer">Nico Verbruggen</a>.</p>
+              <p>Made with <span style="color: rgb(239, 68, 68);">&hearts;</span> for digital reading by <a href="https://nicoverbruggen.be" target="_blank" rel="noreferrer">Nico Verbruggen</a>.</p>
               <p class="attribution">Preview text from <a href="https://www.brandonsanderson.com/blogs/blog/warbreaker-rights-explanation"><em>Warbreaker</em></a> by Brandon Sanderson, used under <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="noreferrer">Creative Commons</a>.</p>
           </div>
         </section>

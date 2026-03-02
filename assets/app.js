@@ -7,6 +7,7 @@ const fontListExtra = document.getElementById("fontListExtra");
 const extraFonts = document.getElementById("extraFonts");
 const darkModeToggle = document.getElementById("darkModeToggle");
 const bezelToggle = document.getElementById("bezelToggle");
+const ligatureDisableToggle = document.getElementById("ligaturesToggle");
 const reader = document.querySelector(".reader");
 const sizeValue = document.getElementById("sizeValue");
 const lineHeightValue = document.getElementById("lineHeightValue");
@@ -152,6 +153,7 @@ function renderPreview() {
   sampleArea.style.lineHeight = lineHeightRange.value;
   sampleArea.style.fontWeight = "400";
   sampleArea.style.fontStyle = "normal";
+  sampleArea.style.fontVariantLigatures = ligatureDisableToggle.checked ? "none" : "common-ligatures";
   updateValueDisplays();
 
   if (sampleHtml) {
@@ -184,18 +186,29 @@ function setupInteractions() {
   fontSelect.addEventListener("change", (e) => setActiveFont(e.target.value));
   darkModeToggle.addEventListener("change", (e) => {
     reader.classList.toggle("is-dark", e.target.checked);
+    updateScreenIcon();
   });
   bezelToggle.addEventListener("change", (e) => {
     reader.classList.toggle("is-bezel-dark", !e.target.checked);
   });
+  ligatureDisableToggle.addEventListener("change", renderPreview);
   if (fontListExtra) {
     setupScrollFade(fontListExtra);
   }
 }
 
+function updateScreenIcon() {
+  const sun = document.querySelector(".screen-icon--sun");
+  const moon = document.querySelector(".screen-icon--moon");
+  sun.style.display = darkModeToggle.checked ? "none" : "inline-block";
+  moon.style.display = darkModeToggle.checked ? "inline-block" : "none";
+}
+
 function syncToggles() {
   darkModeToggle.checked = reader.classList.contains("is-dark");
   bezelToggle.checked = !reader.classList.contains("is-bezel-dark");
+  ligatureDisableToggle.checked = false;
+  updateScreenIcon();
 }
 
 function resetControls() {
