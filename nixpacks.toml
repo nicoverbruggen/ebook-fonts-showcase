@@ -1,6 +1,6 @@
 [phases.setup]
 nixPkgs = ["php84"]
-cmds = ["git clone --branch v3.x --depth 1 https://github.com/nicoverbruggen/ebook-fonts.git ./repos/ebook-fonts"]
+cmds = ["git clone --branch trunk --depth 1 https://github.com/nicoverbruggen/ebook-fonts.git ./repos/ebook-fonts"]
 
 [start]
 cmd = "php -S 0.0.0.0:${PORT:-8080} -t ."

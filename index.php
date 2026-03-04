@@ -7,12 +7,12 @@ require __DIR__ . '/web/load_fonts.php';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Preview and compare curated eBook fonts in a device-style reading view." />
+    <meta name="description" content="Preview a variety of fonts that are part of the 'ebook-fonts' collection on GitHub." />
     <meta name="theme-color" content="#f6e9de" />
-    <meta property="og:title" content="Nico's eBook Fonts Showcase" />
-    <meta property="og:description" content="Preview and compare curated eBook fonts in a device-style reading view." />
+    <meta property="og:title" content="eBook Fonts Showcase" />
+    <meta property="og:description" content="Preview a variety of fonts that are part of the 'ebook-fonts' collection on GitHub." />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23a04c24'/%3E%3Ctext x='50%25' y='56%25' font-size='34' text-anchor='middle' fill='white' font-family='Georgia,serif'%3EAa%3C/text%3E%3C/svg%3E" />
+    <link rel="icon" href="assets/showcase.svg" />
     <title>eBook Fonts Showcase</title>
     <link rel="stylesheet" href="assets/styles.css">
   </head>
@@ -29,7 +29,7 @@ require __DIR__ . '/web/load_fonts.php';
             <div class="font-sections">
               <div class="quick-group">
                 <div class="quick-title"><span class="quick-star">&#9733;</span> Choose a font</div>
-                <p class="quick-disclaimer">This selection has been carefully curated, but there's more options available below, if you want.</p>
+                <p class="quick-disclaimer">The font list you see here is usually based on an <a href="https://github.com/nicoverbruggen/ebook-fonts/tree/trunk" target="_blank">latest changes</a> included in the repository.</p>
                 <div class="font-list" id="fontListCore"></div>
               </div>
               <details class="quick-group" id="extraFonts">

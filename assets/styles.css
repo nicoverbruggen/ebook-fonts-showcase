@@ -597,6 +597,11 @@ select {
   font-style: italic;
 }
 
+.quick-disclaimer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
 .quick-star {
   display: inline-block;
   width: 8px;
