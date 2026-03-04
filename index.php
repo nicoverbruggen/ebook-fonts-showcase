@@ -15,6 +15,9 @@ require __DIR__ . '/web/load_fonts.php';
     <link rel="icon" href="assets/showcase.svg" />
     <title>eBook Fonts Showcase</title>
     <link rel="stylesheet" href="assets/styles.css">
+    <?php if ($additionalTags = getenv('ADDITIONAL_TAGS')): ?>
+    <?= $additionalTags ?>
+    <?php endif; ?>
   </head>
   <body>
     <div class="page">
