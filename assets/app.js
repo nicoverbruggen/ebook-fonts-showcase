@@ -16,6 +16,8 @@ const fonts = new Map();
 const preferredOrder = [
   "Readerly",
   "Cartisse",
+  "NV Readerly",
+  "NV Cartisse",
   "NV NinePoint",
   "NV Charis",
   "NV Garamond",
