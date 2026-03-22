@@ -1,6 +1,6 @@
 <?php
-define('APP_ROOT', __DIR__);
-require __DIR__ . '/web/load_fonts.php';
+define('APP_ROOT', dirname(__DIR__));
+require __DIR__ . '/../src/load_fonts.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,11 @@ require __DIR__ . '/web/load_fonts.php';
     <meta property="og:title" content="eBook Fonts Showcase" />
     <meta property="og:description" content="Preview a variety of fonts that are part of the 'ebook-fonts' collection on GitHub." />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="assets/showcase.svg" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
     <title>eBook Fonts Showcase</title>
     <link rel="stylesheet" href="assets/styles.css">
     <?php if ($additionalTags = getenv('ADDITIONAL_TAGS')): ?>

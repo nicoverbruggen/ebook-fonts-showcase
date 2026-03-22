@@ -4,7 +4,8 @@ if (!defined('APP_ROOT')) {
     exit;
 }
 
-$fontRoot = APP_ROOT . '/repos/ebook-fonts/fonts';
+$fontRoot = APP_ROOT . '/public/repos/ebook-fonts/fonts';
+$webRoot = APP_ROOT . '/public';
 $fontEntries = [];
 
 $iterator = new RecursiveIteratorIterator(
@@ -21,7 +22,7 @@ foreach ($iterator as $fileInfo) {
     if (str_contains($fileInfo->getFilename(), 'NV_OpenDyslexic')) {
         continue;
     }
-    $relative = str_replace(APP_ROOT . '/', '', $fileInfo->getPathname());
+    $relative = str_replace($webRoot . '/', '', $fileInfo->getPathname());
     $relative = str_replace(DIRECTORY_SEPARATOR, '/', $relative);
     $fontEntries[] = $relative;
 }

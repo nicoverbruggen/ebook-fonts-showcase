@@ -1,0 +1,21 @@
+{
+  "name": "eBook Fonts Showcase",
+  "short_name": "Font Showcase",
+  "icons": [
+    {
+      "src": "assets/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#f6e9de",
+  "background_color": "#fffdf8",
+  "display": "standalone"
+}
