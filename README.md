@@ -24,3 +24,14 @@ Starts a PHP dev server on `http://localhost:8888`. Set `PORT` to use a differen
 ## Deployment
 
 Fonts are cloned from [ebook-fonts](https://github.com/nicoverbruggen/ebook-fonts) during the build phase (see `nixpacks.toml`).
+
+## OG image
+
+The Open Graph image (`public/assets/favicon/og-image.png`) is a 1200x630 PNG screenshot. To regenerate it from a source image:
+
+```bash
+magick screenshot.png -strip -resize 1200x630 public/assets/favicon/og-image.png
+pngquant --quality=65-80 --strip --force --output public/assets/favicon/og-image.png public/assets/favicon/og-image.png
+```
+
+Requires `imagemagick` and `pngquant` (`brew install pngquant`).

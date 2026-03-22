@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ebook-fonts.nicoverbruggen.be/sitemap.xml

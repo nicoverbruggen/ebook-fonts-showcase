@@ -1,6 +1,10 @@
 <?php
 define('APP_ROOT', dirname(__DIR__));
 require __DIR__ . '/../src/load_fonts.php';
+
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: strict-origin-when-cross-origin');
+header('Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +18,11 @@ require __DIR__ . '/../src/load_fonts.php';
     <meta property="og:title" content="eBook Fonts Showcase" />
     <meta property="og:description" content="Browse and preview fonts from the ebook-fonts collection. Adjust size, line height, dark mode, and more." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://ebook-fonts.nicoverbruggen.be/assets/favicon/favicon.svg" />
+    <meta property="og:image" content="https://ebook-fonts.nicoverbruggen.be/assets/favicon/og-image.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="eBook Fonts Showcase" />
     <meta name="twitter:description" content="Browse and preview fonts from the ebook-fonts collection. Adjust size, line height, dark mode, and more." />
-    <meta name="twitter:image" content="https://ebook-fonts.nicoverbruggen.be/assets/favicon/favicon.svg" />
+    <meta name="twitter:image" content="https://ebook-fonts.nicoverbruggen.be/assets/favicon/og-image.png" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
     <link rel="icon" href="assets/favicon/favicon.ico">
