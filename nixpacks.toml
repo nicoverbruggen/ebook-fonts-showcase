@@ -1,6 +1,17 @@
+providers = ["php"]
+
 [phases.setup]
 nixPkgs = ["php84", "git"]
+
+[phases.install]
+cmds = []
+
+[phases.build]
+dependsOn = ["setup"]
 cmds = ["git clone --branch trunk --depth 1 https://github.com/nicoverbruggen/ebook-fonts.git ./public/repos/ebook-fonts"]
+
+[variables]
+PHP_CLI_SERVER_WORKERS = "4"
 
 [start]
 cmd = "php -S 0.0.0.0:${PORT:-8080} -t public"
