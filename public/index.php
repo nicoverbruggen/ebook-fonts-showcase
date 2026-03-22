@@ -7,11 +7,18 @@ require __DIR__ . '/../src/load_fonts.php';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Preview a variety of fonts that are part of the 'ebook-fonts' collection on GitHub." />
+    <meta name="description" content="Browse and preview fonts from the ebook-fonts collection. Adjust size, line height, dark mode, and more to find the perfect typeface for digital reading." />
     <meta name="theme-color" content="#f6e9de" />
+    <link rel="canonical" href="https://ebook-fonts.nicoverbruggen.be/" />
+    <meta property="og:url" content="https://ebook-fonts.nicoverbruggen.be/" />
     <meta property="og:title" content="eBook Fonts Showcase" />
-    <meta property="og:description" content="Preview a variety of fonts that are part of the 'ebook-fonts' collection on GitHub." />
+    <meta property="og:description" content="Browse and preview fonts from the ebook-fonts collection. Adjust size, line height, dark mode, and more." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://ebook-fonts.nicoverbruggen.be/assets/favicon/favicon.svg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="eBook Fonts Showcase" />
+    <meta name="twitter:description" content="Browse and preview fonts from the ebook-fonts collection. Adjust size, line height, dark mode, and more." />
+    <meta name="twitter:image" content="https://ebook-fonts.nicoverbruggen.be/assets/favicon/favicon.svg" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
     <link rel="icon" href="assets/favicon/favicon.ico">
@@ -19,6 +26,22 @@ require __DIR__ . '/../src/load_fonts.php';
     <link rel="manifest" href="assets/favicon/site.webmanifest">
     <title>eBook Fonts Showcase</title>
     <link rel="stylesheet" href="assets/styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "eBook Fonts Showcase",
+      "url": "https://ebook-fonts.nicoverbruggen.be/",
+      "description": "Browse and preview fonts from the ebook-fonts collection for digital reading.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any",
+      "author": {
+        "@type": "Person",
+        "name": "Nico Verbruggen",
+        "url": "https://nicoverbruggen.be"
+      }
+    }
+    </script>
     <?php if ($additionalTags = getenv('ADDITIONAL_TAGS')): ?>
     <?= $additionalTags ?>
     <?php endif; ?>
