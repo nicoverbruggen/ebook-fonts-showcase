@@ -27,11 +27,12 @@ Fonts are cloned from [ebook-fonts](https://github.com/nicoverbruggen/ebook-font
 
 ## OG image
 
-The Open Graph image (`public/assets/favicon/og-image.png`) is a 1200x630 PNG screenshot. To regenerate it from a source image:
+The Open Graph image (`public/assets/favicon/og-image.png`) is a 1200x630 PNG screenshot of the app. To regenerate it:
 
 ```bash
-magick screenshot.png -strip -resize 1200x630 public/assets/favicon/og-image.png
-pngquant --quality=65-80 --strip --force --output public/assets/favicon/og-image.png public/assets/favicon/og-image.png
+./generate-og-image.sh
 ```
 
-Requires `imagemagick` and `pngquant` (`brew install pngquant`).
+This starts the PHP server, takes a screenshot at 2x (2400x1260) via Playwright, then resizes and optimizes with `magick` and `pngquant`. If the fonts repo isn't cloned yet, it will be cloned automatically.
+
+Requires `imagemagick`, `pngquant` (`brew install pngquant`), and Playwright (`npx playwright install chromium`).
