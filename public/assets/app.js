@@ -16,6 +16,7 @@ const fonts = new Map();
 const preferredOrder = [
   "Readerly",
   "Sourcerer",
+  "Cartisse",
   "NV Charis",
   "NV Garamond",
   "NV Jost"
