@@ -14,7 +14,7 @@ const lineHeightValue = document.getElementById("lineHeightValue");
 
 const fonts = new Map();
 const preferredOrder = [
-  "Readerly",
+  "Libron",
   "Sourcerer",
   "Cartisse",
   "NV Charis",
