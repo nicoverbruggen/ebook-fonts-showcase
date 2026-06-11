@@ -1,14 +1,17 @@
 providers = ["php"]
 
 [phases.setup]
-nixPkgs = ["php84", "git"]
+nixPkgs = ["php84", "git", "python3"]
 
 [phases.install]
 cmds = []
 
 [phases.build]
 dependsOn = ["setup"]
-cmds = ["git clone --branch trunk --depth 1 https://github.com/nicoverbruggen/ebook-fonts.git ./public/repos/ebook-fonts"]
+cmds = [
+  "git clone --branch trunk --depth 1 https://github.com/nicoverbruggen/ebook-fonts.git ./public/repos/ebook-fonts",
+  "python3 ./public/repos/ebook-fonts/tools/download_fonts.py",
+]
 
 [variables]
 PHP_CLI_SERVER_WORKERS = "4"
