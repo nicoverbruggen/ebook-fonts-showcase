@@ -1,10 +1,9 @@
 FROM alpine:latest AS fonts
 
-RUN apk add --no-cache git python3 \
+RUN apk add --no-cache git \
     && git clone --branch trunk --depth 1 \
         https://github.com/nicoverbruggen/ebook-fonts.git \
         /ebook-fonts \
-    && python3 /ebook-fonts/tools/download_fonts.py \
     && rm -rf /ebook-fonts/.git
 
 FROM php:8.5-fpm-alpine

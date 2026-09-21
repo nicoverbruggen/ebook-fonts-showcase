@@ -25,7 +25,7 @@ Starts a PHP dev server on `http://localhost:8888`. Set `PORT` to use a differen
 
 Create an application in Coolify and choose **Dockerfile** as the build pack. The included image uses PHP 8.5, PHP-FPM, and Nginx, and exposes port `8080`; no custom build or start command is necessary.
 
-The latest `trunk` version of [ebook-fonts](https://github.com/nicoverbruggen/ebook-fonts) is cloned into the image during each build, after which its font download script retrieves the release-backed families. Production requests are served by Nginx and PHP-FPM rather than PHP's development server.
+The latest `trunk` version of [ebook-fonts](https://github.com/nicoverbruggen/ebook-fonts) is cloned into the image during each build. The fonts are included in that repository, so no separate font download is needed. Production requests are served by Nginx and PHP-FPM rather than PHP's development server.
 
 ## OG image
 
